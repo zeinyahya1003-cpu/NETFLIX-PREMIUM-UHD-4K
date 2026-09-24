@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ALIANSI GIZMO — Premium Digital, Mudah & Praktis</title>
+<style>
+:root{
+  --bg:#ffffff; --panel:#F5F5F4; --ink:#1B1B1B; --ink-soft:#5B5B5B;
+  --line:#E5E4E1; --nf:#E50914; --yt-red:#B71C1C; --wa:#20BA5A;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{line-height:1.15;letter-spacing:-0.01em}
+section{padding:64px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:15px 26px;border-radius:10px;font-weight:600;font-size:15px;border:none;cursor:pointer;transition:transform .15s ease}
+.btn:active{transform:scale(.97)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-block{width:100%}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;max-width:1080px;margin:0 auto}
+.logo{font-weight:800;font-size:18px}
+.logo span{color:var(--nf)}
+nav.links{display:none;gap:28px;font-size:14.5px;font-weight:500;color:var(--ink-soft)}
+.nav .order-btn{display:none}
+.menu-toggle{display:block;background:none;border:none;font-size:22px;cursor:pointer}
+@media(min-width:860px){
+  nav.links{display:flex}
+  .nav .order-btn{display:inline-flex}
+  .menu-toggle{display:none}
+}
+.mobile-menu{display:none;flex-direction:column;gap:2px;padding:8px 20px 16px;border-bottom:1px solid var(--line);background:#fff}
+.mobile-menu.open{display:flex}
+.mobile-menu a{padding:10px 0;font-size:15px;font-weight:500;color:var(--ink-soft);border-bottom:1px solid var(--line)}
+
+.hero{padding:56px 0 40px}
+.hero h1{font-size:clamp(32px,7vw,52px);font-weight:800}
+.hero p.sub{margin-top:14px;font-size:17px;color:var(--ink-soft);max-width:460px}
+.hero .btns{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.mock{margin-top:40px;background:linear-gradient(160deg,var(--ink) 0%,#3a3a3a 100%);border-radius:20px;padding:28px;color:#fff}
+.mock .row{display:flex;justify-content:space-between;margin-bottom:18px;font-size:13px;color:#bbb}
+.mock .card-mini{background:rgba(255,255,255,.08);border-radius:12px;padding:16px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:14px}
+.mock .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:8px}
+
+.section-head{margin-bottom:32px}
+.section-head h2{font-size:clamp(24px,4vw,32px);font-weight:800}
+.section-head p{color:var(--ink-soft);margin-top:8px;font-size:15px}
+
+.grid-3{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:720px){.grid-3{grid-template-columns:repeat(3,1fr)}}
+.grid-2{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:620px){.grid-2{grid-template-columns:repeat(2,1fr)}}
+.grid-4{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:620px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+
+.card{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;position:relative;display:flex;flex-direction:column;box-shadow:0 4px 14px rgba(0,0,0,.04)}
+.card.netflix{border-top:3px solid var(--nf)}
+.card.youtube{border-top:3px solid var(--yt-red)}
+.badge{position:absolute;top:-11px;right:20px;background:var(--nf);color:#fff;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:20px}
+.card .name{font-size:16px;font-weight:700}
+.card .dur{color:var(--ink-soft);font-size:13.5px;margin-top:2px}
+.card .price{font-size:28px;font-weight:800;margin-top:16px}
+.card .aktif{font-size:13px;color:var(--ink-soft);margin-top:4px;margin-bottom:20px}
+.card .btn{margin-top:auto}
+.card.youtube .price{color:var(--yt-red)}
+
+.panel-bg{background:var(--panel)}
+
+.kg-card{padding:20px 4px}
+.kg-card .icon{font-size:26px;margin-bottom:10px}
+.kg-card h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.kg-card p{font-size:14px;color:var(--ink-soft)}
+
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step .num{font-size:22px;font-weight:800;color:var(--nf);min-width:40px}
+.step h3{font-size:15.5px;font-weight:700;margin-bottom:4px}
+.step p{font-size:14px;color:var(--ink-soft)}
+.cara-cta{margin-top:28px;text-align:center}
+
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:18px 0;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;color:var(--ink)}
+.faq-q::after{content:"+";font-size:20px;font-weight:400;color:var(--ink-soft);margin-left:12px;transition:transform .2s}
+.faq-item.open .faq-q::after{content:"–"}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease}
+.faq-a p{font-size:14px;color:var(--ink-soft);padding-bottom:18px;max-width:640px}
+
+.cta{background:var(--ink);color:#fff;text-align:center;border-radius:20px;margin:0 20px;padding:56px 24px}
+.cta h2{font-size:clamp(24px,5vw,34px);font-weight:800}
+.cta p{color:#c9c9c9;margin-top:10px;max-width:420px;margin-left:auto;margin-right:auto}
+.cta .btn{margin-top:24px}
+
+.disclaimer{font-size:12.5px;color:var(--ink-soft);text-align:center;padding:20px 20px 0;max-width:640px;margin:0 auto}
+
+.floating-wa{position:fixed;right:16px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;background:var(--wa);color:#fff;padding:13px 18px;border-radius:50px;display:flex;align-items:center;gap:8px;box-shadow:0 8px 20px rgba(32,186,90,.35);font-size:13.5px;font-weight:600}
+
+footer{border-top:1px solid var(--line);padding:44px 0 30px;margin-top:20px;text-align:center}
+footer .logo{margin-bottom:8px;justify-content:center;display:flex}
+footer .tag{color:var(--ink-soft);font-size:14px}
+.copyright{text-align:center;font-size:12.5px;color:var(--ink-soft);margin-top:24px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">ALIANSI <span>GIZMO</span></div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#netflix">Netflix</a>
+      <a href="#youtube">YouTube Premium</a>
+      <a href="#cara-order">Cara Order</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-dark order-btn" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1">ORDER SEKARANG</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#netflix">Netflix</a>
+    <a href="#youtube">YouTube Premium</a>
+    <a href="#cara-order">Cara Order</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/message/BUJQ37K4CSDBG1" target="_blank" rel="noopener">ORDER SEKARANG</a>
+  </div>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <div class="wrap">
+      <h1>PREMIUM DIGITAL<br>MURAH & MUDAH</h1>
+      <p class="sub">Nikmati layanan digital pilihan dengan proses pemesanan yang mudah dan praktis.</p>
+      <div class="btns">
+        <a class="btn btn-dark" href="#netflix">LIHAT PRODUK</a>
+        <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1">ORDER VIA WHATSAPP</a>
+      </div>
+      <div class="mock">
+        <div class="row"><span>Aliansi Gizmo</span><span>09:41</span></div>
+        <div class="card-mini"><span><span class="dot" style="background:var(--nf)"></span>Netflix Premium</span><span>Rp27.000</span></div>
+        <div class="card-mini"><span><span class="dot" style="background:var(--yt-red)"></span>YouTube Premium</span><span>Rp14.000</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="netflix">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>NETFLIX PREMIUM</h2>
+        <p>Pilih masa aktif sesuai kebutuhanmu.</p>
+      </div>
+      <div class="grid-3">
+        <div class="card netflix">
+          <div class="name">Netflix Premium — 1 Minggu</div>
+          <div class="dur">Masa aktif 7 hari</div>
+          <div class="price">Rp13.000</div>
+          <div class="aktif">Aktif 7 hari sejak pemesanan</div>
+          <a class="btn btn-dark btn-block" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1?text=Halo%20Aliansi%20Gizmo%2C%20saya%20ingin%20order%20Netflix%20Premium%201%20Minggu%20Rp13.000.">ORDER SEKARANG</a>
+        </div>
+        <div class="card netflix">
+          <span class="badge">PALING POPULER</span>
+          <div class="name">Netflix Premium — 1 Bulan</div>
+          <div class="dur">Masa aktif 30 hari</div>
+          <div class="price">Rp27.000</div>
+          <div class="aktif">Aktif 30 hari sejak pemesanan</div>
+          <a class="btn btn-dark btn-block" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1?text=Halo%20Aliansi%20Gizmo%2C%20saya%20ingin%20order%20Netflix%20Premium%201%20Bulan%20Rp27.000.">ORDER SEKARANG</a>
+        </div>
+        <div class="card netflix">
+          <div class="name">Netflix Premium — 2 Bulan</div>
+          <div class="dur">Masa aktif 60 hari</div>
+          <div class="price">Rp48.000</div>
+          <div class="aktif">Aktif 60 hari sejak pemesanan</div>
+          <a class="btn btn-dark btn-block" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1?text=Halo%20Aliansi%20Gizmo%2C%20saya%20ingin%20order%20Netflix%20Premium%202%20Bulan%20Rp48.000.">ORDER SEKARANG</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="youtube" class="panel-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>YOUTUBE PREMIUM</h2>
+        <p>Pilih paket sesuai kebutuhanmu.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card youtube" style="background:#fff">
+          <div class="name">YouTube Premium — 1 Bulan</div>
+          <div class="dur">Masa aktif 30 hari</div>
+          <div class="price">Rp14.000</div>
+          <div class="aktif">Aktif 30 hari sejak pemesanan</div>
+          <a class="btn btn-dark btn-block" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1?text=Halo%20Aliansi%20Gizmo%2C%20saya%20ingin%20order%20YouTube%20Premium%201%20Bulan%20Rp14.000.">ORDER SEKARANG</a>
+        </div>
+        <div class="card youtube" style="background:#fff">
+          <div class="name">YouTube Premium — 2 Bulan</div>
+          <div class="dur">Masa aktif 60 hari</div>
+          <div class="price">Rp25.000</div>
+          <div class="aktif">Aktif 60 hari sejak pemesanan</div>
+          <a class="btn btn-dark btn-block" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1?text=Halo%20Aliansi%20Gizmo%2C%20saya%20ingin%20order%20YouTube%20Premium%202%20Bulan%20Rp25.000.">ORDER SEKARANG</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="keunggulan">
+    <div class="wrap">
+      <div class="section-head"><h2>KENAPA ALIANSI GIZMO?</h2></div>
+      <div class="grid-4">
+        <div class="kg-card"><div class="icon">⚡</div><h3>Proses Cepat</h3><p>Proses pesanan mengikuti jenis produk dan kondisi pesanan.</p></div>
+        <div class="kg-card"><div class="icon">💬</div><h3>Customer Service</h3><p>Bantuan melalui WhatsApp.</p></div>
+        <div class="kg-card"><div class="icon">📱</div><h3>Pemesanan Mudah</h3><p>Pilih paket lalu langsung hubungi customer service.</p></div>
+        <div class="kg-card"><div class="icon">📋</div><h3>Informasi Produk Jelas</h3><p>Harga dan masa aktif ditampilkan secara transparan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cara-order" class="panel-bg">
+    <div class="wrap">
+      <div class="section-head"><h2>CARA ORDER</h2></div>
+      <div class="steps">
+        <div class="step"><div class="num">01</div><div><h3>Pilih Produk</h3><p>Pilih Netflix Premium atau YouTube Premium.</p></div></div>
+        <div class="step"><div class="num">02</div><div><h3>Pilih Paket</h3><p>Pilih masa aktif yang diinginkan.</p></div></div>
+        <div class="step"><div class="num">03</div><div><h3>Klik Order via WhatsApp</h3><p>Klik tombol Order Sekarang dan hubungi Aliansi Gizmo melalui WhatsApp.</p></div></div>
+        <div class="step"><div class="num">04</div><div><h3>Ikuti Instruksi</h3><p>Ikuti instruksi pemesanan dari customer service.</p></div></div>
+      </div>
+      <div class="cara-cta">
+        <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1">CHAT VIA WHATSAPP</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head"><h2>FAQ</h2></div>
+      <div id="faqList">
+        <div class="faq-item">
+          <button class="faq-q">Bagaimana cara order?</button>
+          <div class="faq-a"><p>Pilih produk dan paket yang diinginkan, kemudian klik tombol Order Sekarang untuk menghubungi Aliansi Gizmo melalui WhatsApp.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bagaimana cara pembayaran?</button>
+          <div class="faq-a"><p>Customer service akan memberikan informasi pembayaran setelah pembeli menghubungi kami.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Berapa lama proses pesanan?</button>
+          <div class="faq-a"><p>Waktu proses mengikuti jenis produk dan kondisi pesanan.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Bagaimana jika mengalami kendala?</button>
+          <div class="faq-a"><p>Hubungi customer service Aliansi Gizmo melalui WhatsApp.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <div class="cta">
+        <h2>SIAP MENIKMATI PREMIUM?</h2>
+        <p>Pilih paket yang sesuai kebutuhanmu dan order dengan mudah melalui WhatsApp.</p>
+        <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1">ORDER VIA WHATSAPP</a>
+      </div>
+      <p class="disclaimer">Aliansi Gizmo adalah toko digital independen dan bukan merupakan situs resmi Netflix maupun YouTube. Netflix dan YouTube Premium adalah merek dagang milik pemiliknya masing-masing.</p>
+    </div>
+  </section>
+</main>
+
+<a class="floating-wa" target="_blank" rel="noopener" href="https://wa.me/message/BUJQ37K4CSDBG1">💬 Chat dengan kami</a>
+
+<footer>
+  <div class="wrap">
+    <div class="logo">ALIANSI <span style="color:var(--nf)">GIZMO</span></div>
+    <p class="tag">Premium Digital, Mudah & Praktis</p>
+    <div class="copyright">© 2026 Aliansi Gizmo. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var mobileMenu = document.getElementById('mobileMenu');
+  menuToggle.addEventListener('click', function () {
+    mobileMenu.classList.toggle('open');
+  });
+  mobileMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(function (item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function () {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (other) {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
